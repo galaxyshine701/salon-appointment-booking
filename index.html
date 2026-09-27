@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Beauté Lounge | Salon & Wellness Sanctuary</title>
+  <meta name="description" content="Experience bespoke beauty and relaxation at Atelier Beauté Lounge. Book premium haircuts, coloring, facials, bridal makeup, and more.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#home" class="brand-logo" aria-label="Atelier Beauté Lounge Home">
+        <!-- Custom Inline SVG Crest Logo -->
+        <svg class="brand-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#C9A24B" stroke-width="1.5" stroke-dasharray="2 2" />
+          <path d="M20 7C20.8 11.5 24 15 28.5 16C24 17 20.8 20.5 20 25C19.2 20.5 16 17 11.5 16C16 15 19.2 11.5 20 7Z" fill="#C9A24B" />
+          <path d="M14 28C16 26.5 18 27.5 20 29C22 27.5 24 26.5 26 28" stroke="#7A2E3D" stroke-width="1.75" stroke-linecap="round" />
+          <circle cx="20" cy="32.5" r="1.5" fill="#C9A24B" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">Atelier Beauté</span>
+          <span class="brand-tagline">Salon & Lounge</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#booking" class="nav-link">Book Now</a></li>
+          <li>
+            <a href="#appointments" class="nav-link appointments-nav-link">
+              My Appointments
+              <span id="nav-count-badge" class="nav-badge" aria-label="Active appointments count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero Section: Full-Width Full-Bleed Photographic Showcase -->
+    <section class="hero-section" aria-label="Welcome to Atelier Beauté Lounge">
+      <div class="hero-media" aria-hidden="true">
+        <img 
+          src="assets/images/hero.jpg" 
+          alt="Atelier Beauté Lounge luxury salon interior featuring arched gold mirrors, marble counters, and burgundy velvet styling chairs" 
+          class="hero-banner-image"
+          width="1600" 
+          height="900"
+          fetchpriority="high"
+        >
+        <div class="hero-scrim-overlay"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content hero-editorial-overlay">
+          <span class="hero-eyebrow">✦ Artisan Beauty & Wellness</span>
+          <h1 class="hero-heading">
+            <span class="hero-heading-line">Elevate Your</span>
+            <span class="hero-heading-line">Natural Radiance</span>
+          </h1>
+          <p class="hero-subtext">
+            Immerse yourself in bespoke hair styling, restorative skincare, and transformative makeup artistry tailored to your distinct elegance.
+          </p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-primary hero-btn-primary">Book An Appointment</a>
+            <a href="#services" class="btn btn-secondary hero-btn-secondary">Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Our Curated Offerings</span>
+          <h2 class="section-title">Signature Salon Services</h2>
+          <div class="gold-divider" aria-hidden="true"></div>
+          <p class="section-description">
+            Every treatment is customized with premium products, artisanal precision, and a tranquil touch.
+          </p>
+        </div>
+
+        <!-- Populated dynamically by app.js from the single source of truth SERVICES array -->
+        <div id="services-grid" class="services-grid" aria-live="polite">
+          <!-- Dynamically generated service cards will be inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="section booking-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Reserve Your Session</span>
+          <h2 class="section-title">Schedule An Appointment</h2>
+          <div class="gold-divider" aria-hidden="true"></div>
+          <p class="section-description">
+            Select your preferred service and schedule. We look forward to pampering you.
+          </p>
+        </div>
+
+        <div class="booking-wrapper">
+          <form id="booking-form" class="booking-form" novalidate>
+            <!-- Notification feedback banner -->
+            <div id="booking-notification" class="notification-banner" role="status" aria-live="polite" hidden></div>
+
+            <div class="form-grid">
+              <!-- Customer Name -->
+              <div class="form-group">
+                <label for="customer-name" class="form-label">Full Name <span class="required-mark">*</span></label>
+                <input
+                  type="text"
+                  id="customer-name"
+                  name="customerName"
+                  class="form-control"
+                  placeholder="e.g. Eleanor Vance"
+                  autocomplete="name"
+                  required
+                >
+                <span class="form-error" id="name-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="form-group">
+                <label for="customer-phone" class="form-label">Phone Number <span class="required-mark">*</span></label>
+                <input
+                  type="tel"
+                  id="customer-phone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="e.g. +92 300 1234567"
+                  autocomplete="tel"
+                  required
+                >
+                <span class="form-error" id="phone-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Service Dropdown -->
+              <div class="form-group form-group-full">
+                <label for="service-select" class="form-label">Select Service <span class="required-mark">*</span></label>
+                <select id="service-select" name="service" class="form-control" required>
+                  <!-- Populated dynamically via JavaScript from the single source of truth SERVICES array -->
+                </select>
+                <span class="form-error" id="service-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Date Picker -->
+              <div class="form-group">
+                <label for="booking-date" class="form-label">Preferred Date <span class="required-mark">*</span></label>
+                <input
+                  type="date"
+                  id="booking-date"
+                  name="date"
+                  class="form-control"
+                  required
+                >
+                <span class="form-error" id="date-error" aria-live="polite"></span>
+              </div>
+
+              <!-- Time Picker -->
+              <div class="form-group">
+                <label for="booking-time" class="form-label">Preferred Time <span class="required-mark">*</span></label>
+                <input
+                  type="time"
+                  id="booking-time"
+                  name="time"
+                  class="form-control"
+                  required
+                >
+                <span class="form-error" id="time-error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="form-submit-wrapper">
+              <button type="submit" id="submit-booking-btn" class="btn btn-primary btn-submit">
+                <!-- Custom Inline SVG Calendar Icon -->
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Confirm Appointment
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Appointments Section -->
+    <section id="appointments" class="section appointments-section">
+      <div class="container">
+        <div class="appointments-header-row">
+          <div>
+            <span class="section-eyebrow">Your Schedule</span>
+            <h2 class="section-title">My Appointments</h2>
+          </div>
+          <!-- Dynamic Count Indicator -->
+          <div class="counter-badge-container">
+            <span id="appointment-count" class="appointment-count-badge" aria-live="polite">0 appointments booked</span>
+          </div>
+        </div>
+
+        <div class="gold-divider" aria-hidden="true"></div>
+
+        <!-- Empty State Container -->
+        <div id="empty-state" class="empty-state" aria-live="polite">
+          <div class="empty-state-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-state-svg">
+              <rect x="8" y="10" width="32" height="30" rx="3" stroke="#C9A24B" />
+              <line x1="16" y1="6" x2="16" y2="12" stroke="#7A2E3D" stroke-linecap="round" stroke-width="2" />
+              <line x1="32" y1="6" x2="32" y2="12" stroke="#7A2E3D" stroke-linecap="round" stroke-width="2" />
+              <line x1="8" y1="18" x2="40" y2="18" stroke="#C9A24B" />
+              <circle cx="24" cy="28" r="4" stroke="#7A2E3D" stroke-dasharray="2 2" />
+            </svg>
+          </div>
+          <h3 class="empty-state-heading">No appointments booked yet</h3>
+          <p class="empty-state-text">
+            Indulge in a rejuvenating session. Choose from our signature hair, skin, and makeup experiences.
+          </p>
+          <a href="#booking" class="btn btn-secondary empty-state-btn">Book An Experience</a>
+        </div>
+
+        <!-- Appointments List Container -->
+        <div id="appointments-list" class="appointments-grid" aria-live="polite">
+          <!-- Dynamically populated booked appointment cards -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="footer-title">Atelier Beauté Lounge</span>
+        <p class="footer-quote">Elegance is an attitude crafted with intention.</p>
+      </div>
+      <div class="footer-info">
+        <p><strong>Hours:</strong> Tuesday – Sunday: 10:00 AM – 8:00 PM</p>
+        <p><strong>Concierge:</strong> +92 300 0000000 | concierge@atelierbeaute.com</p>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; <span id="current-year">2026</span> Atelier Beauté Lounge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App JavaScript -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+
